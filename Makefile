@@ -1,5 +1,8 @@
+APP_NAME=jubelio-chat
+BUILD_DIR=./.dist
+
 build:
-	@go build -o .build/jubelio-chat
+	CGO_ENABLED go build -ldflags="-w -s" $(BUILD_DIR)/$(APP_NAME) main.go
 
 run: build
-	@./build/jubelio-chat
+	$(BUILD_DIR)/$(APP_NAME)
