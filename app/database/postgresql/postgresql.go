@@ -43,5 +43,9 @@ func (db *DB) connect(dbConfig *config.DBConfig) (err error) {
 }
 
 func ConnectDB() error {
-	return postgresql.connect(&config.DBConfig{})
+	dbConfig, err := config.LoadDBConfig()
+	if err != nil {
+		return err 
+	}
+	return postgresql.connect(dbConfig)
 }

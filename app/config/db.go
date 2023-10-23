@@ -30,7 +30,7 @@ func LoadDBConfig() (*DBConfig, error) {
 	dbMaxIdleConn, foundDBMaxIdleConn := os.LookupEnv("DB_MAXIDLECONN")
 	dbMaxLifeTimeConn, foundDBMaxLifeTimeConn := os.LookupEnv("DB_MAXLIFETIMECONN")
 
-	if !foundDBHost || !foundDBPort || !foundDBUsername || !foundDBPass || !foundDBName || foundDBSslMode || foundDBMaxOpenConn || foundDBMaxLifeTimeConn || foundDBMaxIdleConn {
+	if !foundDBHost || !foundDBPort || !foundDBUsername || !foundDBPass || !foundDBName || !foundDBSslMode || !foundDBMaxOpenConn || !foundDBMaxLifeTimeConn || !foundDBMaxIdleConn {
 		viper.AddConfigPath(".")
 		viper.SetConfigName(".env.local")
 		viper.SetConfigType("env")
