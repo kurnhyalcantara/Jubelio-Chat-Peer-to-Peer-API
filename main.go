@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"github.com/kurnhyalcantara/Jubelio-Chat-Peer-to-Peer-API/app/config"
+	"github.com/kurnhyalcantara/Jubelio-Chat-Peer-to-Peer-API/cmd/server"
+)
 
 func main() {
-	fmt.Println("Hello world!")
+	config.LoadConfigs()
+	server.Serve()
 }

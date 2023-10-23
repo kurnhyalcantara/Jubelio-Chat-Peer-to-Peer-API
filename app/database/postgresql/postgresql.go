@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/kurnhyalcantara/Jubelio-Chat-Peer-to-Peer-API/app/config"
+	_ "github.com/lib/pq"
 )
 
 type DB struct {
@@ -24,7 +25,7 @@ func (db *DB) connect(dbConfig *config.DBConfig) (err error) {
 		dbConfig.DB_SSLMODE,
 	)
 
-	postgresql.DB, err = sql.Open("postgresql", dbURI)
+	postgresql.DB, err = sql.Open("postgres", dbURI)
 	if err != nil {
 		return err
 	}
